@@ -2,6 +2,7 @@ package br.edu.web;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import javax.validation.constraints.NotNull;
 
 /**
  * Calculo da distância entre dois pontos.
@@ -13,12 +14,16 @@ import javax.inject.Named;
 @RequestScoped
 public class DistanciaPontosBean {
 	
+	@NotNull
 	private Integer x1;
 	
+	@NotNull
 	private Integer x2;
 	
+	@NotNull
 	private Integer y1;
 	
+	@NotNull
 	private Integer y2;
 	
 	private Double distancia;

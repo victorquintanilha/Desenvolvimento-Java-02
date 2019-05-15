@@ -2,6 +2,7 @@ package br.edu.web;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import javax.validation.constraints.NotNull;
 
 import br.edu.lista01.Exercicios;
 
@@ -15,10 +16,13 @@ import br.edu.lista01.Exercicios;
 @RequestScoped
 public class ProgressaoBean {
 	
+	@NotNull
 	private Double a1;
 	
+	@NotNull
 	private Integer n;
 	
+	@NotNull
 	private Double r;
 	
 	private Double an;
