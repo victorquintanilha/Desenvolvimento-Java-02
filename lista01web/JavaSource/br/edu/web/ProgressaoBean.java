@@ -1,10 +1,11 @@
 package br.edu.web;
 
-import javax.enterprise.context.RequestScoped;
+import java.util.ArrayList;
+import javax.enterprise.context.ApplicationScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import javax.validation.constraints.NotNull;
-
-import br.edu.lista01.Exercicios;
+import br.edu.entidade.CalculoPA;
 
 /**
  * Calculo da progressão aritmética.
@@ -13,54 +14,42 @@ import br.edu.lista01.Exercicios;
  *
  */
 @Named
-@RequestScoped
+@ApplicationScoped
 public class ProgressaoBean {
 	
-	@NotNull
-	private Double a1;
+	private CalculoPA calculoPA;
 	
-	@NotNull
-	private Integer n;
+	private ArrayList<CalculoPA> calculos;
 	
-	@NotNull
-	private Double r;
-	
-	private Double an;
+	public ProgressaoBean() {
+		this.calculoPA = new CalculoPA();
+		this.calculos = new ArrayList<CalculoPA>();
+	}
 	
 	public void calcular() {
-		this.an = Exercicios.calcularNEsimoTermo(a1, n, r);
+		calculoPA.calcularNEsimoTermo();
+		this.calculos.add(this.calculoPA);
+		FacesMessage message = new FacesMessage();
+		message.setSummary("O an é: " + this.calculoPA.getAn());
+		message.setSeverity(FacesMessage.SEVERITY_INFO);
+		FacesContext.getCurrentInstance().addMessage(null, message);
+		this.calculoPA = new CalculoPA();
 	}
 
-	public Double getA1() {
-		return a1;
+	public CalculoPA getCalculoPA() {
+		return calculoPA;
 	}
 
-	public void setA1(Double a1) {
-		this.a1 = a1;
+	public void setCalculoPA(CalculoPA calculoPA) {
+		this.calculoPA = calculoPA;
 	}
 
-	public Integer getN() {
-		return n;
+	public ArrayList<CalculoPA> getCalculos() {
+		return calculos;
 	}
 
-	public void setN(Integer n) {
-		this.n = n;
-	}
-
-	public Double getR() {
-		return r;
-	}
-
-	public void setR(Double r) {
-		this.r = r;
-	}
-
-	public Double getAn() {
-		return an;
-	}
-
-	public void setAn(Double an) {
-		this.an = an;
+	public void setCalculos(ArrayList<CalculoPA> calculos) {
+		this.calculos = calculos;
 	}
 	
 }
