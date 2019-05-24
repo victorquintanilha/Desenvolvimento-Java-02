@@ -6,7 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 import br.edu.dsj.automovel.entidade.Marca;
-import br.edu.dsj.automovel.modelo.MarcaFake;
+import br.edu.dsj.automovel.modelo.ServicoMarca;
 import br.edu.dsj.automovel.web.util.JSFUtils;
 
 @Named
@@ -20,13 +20,18 @@ public class MarcaBean {
 	}
 	
 	public void salvarMarca() {
-		MarcaFake.cadastrarMarca(this.marca);
+		ServicoMarca.salvarMarca(this.marca);
 		this.marca = new Marca();
 		JSFUtils.enviarMensagemDeSucesso("Marca cadastrada com sucesso!");
 	}
 	
 	public ArrayList<Marca> listarMarcas() {
-		return MarcaFake.listar();
+		return ServicoMarca.listar();
+	}
+	
+	public void excluirMarca(Marca marca) {
+		ServicoMarca.excluirMarca(marca);
+		JSFUtils.enviarMensagemDeSucesso("Marca excluída com sucesso!");
 	}
 
 	public Marca getMarca() {

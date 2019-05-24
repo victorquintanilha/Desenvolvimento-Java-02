@@ -10,19 +10,30 @@ import br.edu.dsj.automovel.entidade.Marca;
  * @author 1829203
  *
  */
-public class MarcaFake {
+public class ServicoMarca {
 
 	/**
 	 * Lista fake de banco de dados
 	 */
 	private static ArrayList<Marca> marcasCadastradas = new ArrayList<Marca>();
 	
-	public static void cadastrarMarca(Marca marca) {
+	static {
+		marcasCadastradas.add(new Marca("Fiat","aaa"));
+		marcasCadastradas.add(new Marca("Volvo","bbb"));
+		marcasCadastradas.add(new Marca("Renault","ccc"));
+		marcasCadastradas.add(new Marca("Hyundai","ddd"));
+	}
+	
+	public static void salvarMarca(Marca marca) {
 		marcasCadastradas.add(marca);
 	}
 	
 	public static ArrayList<Marca> listar() {
 		return marcasCadastradas;
+	}
+	
+	public static void excluirMarca(Marca marca) {
+		marcasCadastradas.remove(marca);
 	}
 	
 }

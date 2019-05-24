@@ -16,6 +16,15 @@ public class Marca {
 	@NotBlank
 	private String descricao;
 	
+	public Marca() {
+		
+	}
+
+	public Marca(String nome, String descricao) {
+		this.nome = nome;
+		this.descricao = descricao;
+	}
+
 	public String getNome() {
 		return nome;
 	}

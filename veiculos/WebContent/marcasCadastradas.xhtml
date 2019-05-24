@@ -6,19 +6,38 @@
       xmlns:p="http://primefaces.org/ui"> 
 
 <h:head></h:head> 
-<h:body> 
+<h:body>
 
-	<p:dataTable value="#{marcaBean.listarMarcas()}" var="marca">
+	<h:form>
 	
-		<p:column headerText="Nome">
-			<h:outputText value="#{marca.nome}"/>
-		</p:column>
+		<p:growl globalOnly="true"/>
+
+		<p:dataTable value="#{marcaBean.listarMarcas()}" var="marca">
 		
-		<p:column headerText="Descrição">
-			<h:outputText value="#{marca.descricao}"/>
-		</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{marca.nome}"/>
+			</p:column>
+			
+			<p:column headerText="Descrição">
+				<h:outputText value="#{marca.descricao}"/>
+			</p:column>
+			
+			<p:column headerText="Ações">
+			
+				<p:commandButton value="Excluir" action="#{marcaBean.excluirMarca(marca)}" update="@form">
+					<p:confirm header="Confirmação" message="Deseja realmente excluir a marca?" icon="pi pi-exclamation-triangle"/>
+				</p:commandButton>
+    			
+			</p:column>
+		
+		</p:dataTable>
+		
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+    		<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+    		<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+		</p:confirmDialog>
 	
-	</p:dataTable>
+	</h:form>
 
 </h:body> 
 </html>
