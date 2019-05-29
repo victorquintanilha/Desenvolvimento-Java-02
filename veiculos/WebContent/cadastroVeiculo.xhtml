@@ -49,7 +49,12 @@
 				<p:spinner id="n7" value="#{veiculoBean.veiculo.anoFabricacao}"/>
 				<p:message for="n7"/>
 				
-				
+				<p:outputLabel for="n8" value="Tipo combustível:"/>
+				<p:selectOneMenu id="n8" value="#{veiculoBean.veiculo.combustivel}">
+					<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true"/>
+					<f:selectItems value="#{combustivelBean.listarCombustivel()}" var="combustivel" itemLabel="#{combustivel.descricao}" itemValue="#{combustivel}"/>
+				</p:selectOneMenu>
+				<p:message for="n8"/>
 				
 				<p:outputLabel for="n9" value="FIPE:"/>
 				<p:inputNumber id="n9" value="#{veiculoBean.veiculo.precoFipe}" decimalPlaces="2" thousandSeparator="." decimalSeparator="," symbol="R$"/>

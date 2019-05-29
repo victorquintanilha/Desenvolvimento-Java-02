@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
+import br.edu.dsj.automovel.enumerado.Combustivel;
+
 /**
  * Representa um {@link Veiculo}
  * 
@@ -26,6 +28,9 @@ public class Veiculo {
 	private Integer anoModelo;
 	
 	private Integer anoFabricacao;
+	
+	@NotNull
+	private Combustivel combustivel;
 	
 	private Double precoFipe;
 
@@ -91,6 +96,14 @@ public class Veiculo {
 
 	public void setDataEmplacamento(Date dataEmplacamento) {
 		this.dataEmplacamento = dataEmplacamento;
+	}
+
+	public Combustivel getCombustivel() {
+		return combustivel;
+	}
+
+	public void setCombustivel(Combustivel combustivel) {
+		this.combustivel = combustivel;
 	}
 	
 }
