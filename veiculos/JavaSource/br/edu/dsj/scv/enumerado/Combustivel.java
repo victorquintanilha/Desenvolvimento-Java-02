@@ -1,4 +1,4 @@
-package br.edu.dsj.automovel.enumerado;
+package br.edu.dsj.scv.enumerado;
 
 public enum Combustivel {
 	

@@ -1,4 +1,4 @@
-package br.edu.dsj.automovel.web.util;
+package br.edu.dsj.scv.web.util;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -6,13 +6,13 @@ import javax.faces.context.FacesContext;
 /**
  * Classe para eventos utilitários de JSF
  * 
- * @author 1829203
+ * @author 4694
  *
  */
 public class JSFUtils {
 
 	/**
-	 * Envia uma mensagem de sucesso para a tela usando FSJ
+	 * Envia uma mensagem de sucesso para a tela usando JSF
 	 * 
 	 * @param mensagem
 	 */
@@ -25,5 +25,9 @@ public class JSFUtils {
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 		
 	}
-	
+
 }
+
+
+
+

@@ -1,37 +1,38 @@
-package br.edu.dsj.automovel.entidade;
+package br.edu.dsj.scv.entidade;
 
 import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
-import br.edu.dsj.automovel.enumerado.Combustivel;
+import br.edu.dsj.scv.enumerado.Combustivel;
 
 /**
- * Representa um {@link Veiculo}
+ * Representa um veículo
  * 
- * @author 1829203
+ * @author 4694
  *
  */
+
 public class Veiculo {
-	
+
 	@NotNull
 	private Marca marca;
 
 	private String modelo;
-	
+
 	private String placa;
-	
+
 	private Date dataEmplacamento;
-	
+
 	private String cor;
-	
+
 	private Integer anoModelo;
-	
+
 	private Integer anoFabricacao;
-	
+
 	@NotNull
 	private Combustivel combustivel;
-	
+
 	private Double precoFipe;
 
 	public Marca getMarca() {
@@ -105,5 +106,5 @@ public class Veiculo {
 	public void setCombustivel(Combustivel combustivel) {
 		this.combustivel = combustivel;
 	}
-	
+
 }
