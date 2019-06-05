@@ -6,9 +6,10 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:/scv_ds</jta-data-source>
 		<properties>
-			<property name="hibernate.dialect" 
-				value="org.hibernate.dialect.PostgreSQL95Dialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect" />
+<!-- 			<property name="hibernate.hbm2ddl.auto" value="create" /> em ambiente de produção, remover esta linha! -->
+			<property name="hibernate.show_sql" value="true"/> <!-- em ambiente de produção, remover esta linha! -->
+			<property name="hibernate.format_sql" value="true"/> <!-- em ambiente de produção, remover esta linha! -->
 		</properties>
 	</persistence-unit>
 </persistence>

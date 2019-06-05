@@ -1,7 +1,8 @@
 package br.edu.dsj.scv.web;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -12,6 +13,9 @@ import br.edu.dsj.scv.web.util.JSFUtils;
 @Named
 @RequestScoped
 public class MarcaBean {
+	
+	@EJB
+	private ServicoMarca servicoMarca;
 
 	private Marca marca;
 
@@ -20,18 +24,18 @@ public class MarcaBean {
 	}
 
 	public void salvarMarca() {
-		ServicoMarca.cadastrarMarca(this.marca);
+		this.servicoMarca.cadastrarMarca(this.marca);
 		this.marca = new Marca();
 		JSFUtils.enviarMensagemDeSucesso("Marca cadastrada com sucesso!");
 	}
 
 	public void excluirMarca(Marca marca) {
-		ServicoMarca.excluirMarca(marca);
+		this.servicoMarca.excluirMarca(marca);
 		JSFUtils.enviarMensagemDeSucesso("Marca excluída com sucesso!");
 	}
 
-	public ArrayList<Marca> listarMarcas() {
-		return ServicoMarca.listar();
+	public List<Marca> listarMarcas() {
+		return this.servicoMarca.listar();
 	}
 
 	public Marca getMarca() {

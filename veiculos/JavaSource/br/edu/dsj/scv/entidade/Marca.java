@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -19,8 +20,9 @@ import javax.validation.constraints.NotBlank;
 public class Marca {
 	
 	@Id
+	@SequenceGenerator(name = "NUM_SEQ_MARCA", sequenceName = "NUM_SEQ_MARCA", allocationSize = 0)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NUM_SEQ_MARCA")
 	@Column(name = "SCV_ENT_MARCA_PK")
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
 	@Column(name = "SCV_ENT_MARCA_NOME")
