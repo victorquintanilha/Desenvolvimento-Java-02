@@ -21,7 +21,7 @@
 				<p:selectOneMenu id="n1" value="#{veiculoBean.veiculo.marca}"
 					converter="omnifaces.SelectItemsIndexConverter">
 					<f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
-					<f:selectItems value="#{marcaBean.listarMarcas()}" var="marca"
+					<f:selectItems value="#{marcaBean.marcas}" var="marca"
 						itemLabel="#{marca.nome}" itemValue="#{marca}" />
 				</p:selectOneMenu>
 				<p:message for="n1" />

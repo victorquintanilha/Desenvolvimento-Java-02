@@ -25,8 +25,8 @@ public class VeiculoBean {
 
 	public void salvarVeiculo() {
 		this.servicoVeiculo.cadastrarVeiculo(this.veiculo);
+		this.veiculo = new Veiculo();
 		JSFUtils.enviarMensagemDeSucesso("Veículo cadastrado com sucesso!");
-		JSFUtils.enviarMensagemDeSucesso(this.veiculo.getCombustivel().getDescricao());
 	}
 
 	public List<Veiculo> listarVeiculos() {

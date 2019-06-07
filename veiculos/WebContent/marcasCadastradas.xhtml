@@ -12,7 +12,7 @@
 
 		<p:growl globalOnly="true" />
 
-		<p:dataTable value="#{marcaBean.listarMarcas()}" var="marca">
+		<p:dataTable value="#{marcaBean.marcas}" var="marca">
 			<p:column headerText="Nome">
 				<h:outputText value="#{marca.nome}" />
 			</p:column>

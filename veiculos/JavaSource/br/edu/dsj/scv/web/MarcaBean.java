@@ -18,6 +18,8 @@ public class MarcaBean {
 	private ServicoMarca servicoMarca;
 
 	private Marca marca;
+	
+	private List<Marca> marcas;
 
 	public MarcaBean() {
 		this.marca = new Marca();
@@ -34,16 +36,23 @@ public class MarcaBean {
 		JSFUtils.enviarMensagemDeSucesso("Marca excluída com sucesso!");
 	}
 
-	public List<Marca> listarMarcas() {
-		return this.servicoMarca.listar();
-	}
-
 	public Marca getMarca() {
 		return marca;
 	}
 
 	public void setMarca(Marca marca) {
 		this.marca = marca;
+	}
+
+	public List<Marca> getMarcas() {
+		if(this.marcas == null) {
+			this.marcas = this.servicoMarca.listar();
+		}
+		return marcas;
+	}
+
+	public void setMarcas(List<Marca> marcas) {
+		this.marcas = marcas;
 	}
 
 }
