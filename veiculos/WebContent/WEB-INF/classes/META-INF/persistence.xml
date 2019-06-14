@@ -7,7 +7,8 @@
 		<jta-data-source>java:/scv_ds</jta-data-source>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect" />
-<!--  			<property name="hibernate.hbm2ddl.auto" value="create" /> em ambiente de produção, remover esta linha! (show_sql e format_sql também) -->
+  			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<!-- em ambiente de produção, remover a linha acima! -->
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="true"/>
 		</properties>
