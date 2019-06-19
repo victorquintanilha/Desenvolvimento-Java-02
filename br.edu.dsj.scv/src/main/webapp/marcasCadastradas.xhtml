@@ -5,14 +5,16 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:head></h:head>
-<h:body>
+<ui:composition template="/recursos/template/template.xhtml">
 
-	<h:form>
+	<ui:define name="tituloPagina">Marcas cadastradas</ui:define>
+	<ui:define name="tituloPrincipal">Marcas cadastradas</ui:define>
+	<ui:define name="tituloSecundario">marcas cadastradas no sistema de locação</ui:define>
+	<ui:define name="botoesAcao">
+	</ui:define>
 
-		<p:growl globalOnly="true" />
-
-		<p:dataTable value="#{marcaBean.listarMarcas()}" var="marca">
+	<ui:define name="conteudo">
+		<p:dataTable value="#{marcaBean.marcas}" var="marca">
 			<p:column headerText="Nome">
 				<h:outputText value="#{marca.nome}" />
 			</p:column>
@@ -20,23 +22,16 @@
 				<h:outputText value="#{marca.descricao}" />
 			</p:column>
 			<p:column headerText="Ações">
-
 				<p:commandButton value="Excluir"
 					action="#{marcaBean.excluirMarca(marca)}" update="@form">
-					<p:confirm header="Confirmação" message="Deseja realmente excluir a marca?" icon="pi pi-exclamation-triangle" />
+					<p:confirm header="Confirmação"
+						message="Deseja realmente excluir a marca?"
+						icon="pi pi-exclamation-triangle" />
 				</p:commandButton>
-
 			</p:column>
 		</p:dataTable>
+	</ui:define>
 
+</ui:composition>
 
-		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-			<p:commandButton value="Sim" type="button"
-				styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-			<p:commandButton value="Não" type="button"
-				styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-		</p:confirmDialog>
-	</h:form>
-
-</h:body>
 </html>

@@ -26,7 +26,7 @@
 	<div id="topo">
 		<div class="marca">
 			<ui:insert name="tituloSistema">
-				<a href="#"><span>exemplo</span>Facelets</a>
+				<a href="#"><span>sistema</span> Veículos</a>
 			</ui:insert>
 		</div>
 	</div>
@@ -62,6 +62,12 @@
 						Aqui ficam os botões
 					</ui:insert>
 				</div>
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+					<p:commandButton value="Sim" type="button"
+						styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+					<p:commandButton value="Não" type="button"
+						styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+				</p:confirmDialog>
 			</h:form>
 		</div>
 	</div>

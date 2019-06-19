@@ -1,7 +1,8 @@
 package br.edu.dsj.scv.web;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -13,6 +14,9 @@ import br.edu.dsj.scv.web.util.JSFUtils;
 @RequestScoped
 public class VeiculoBean {
 
+	@EJB
+	private ServicoVeiculo servicoVeiculo;
+
 	private Veiculo veiculo;
 
 	public VeiculoBean() {
@@ -20,17 +24,17 @@ public class VeiculoBean {
 	}
 
 	public void salvarVeiculo() {
-		ServicoVeiculo.cadastrarVeiculo(this.veiculo);
+		this.servicoVeiculo.cadastrarVeiculo(this.veiculo);
+		this.veiculo = new Veiculo();
 		JSFUtils.enviarMensagemDeSucesso("Veículo cadastrado com sucesso!");
-		JSFUtils.enviarMensagemDeSucesso(this.veiculo.getCombustivel().getDescricao());
 	}
 
-	public ArrayList<Veiculo> listarVeiculos() {
-		return ServicoVeiculo.listar();
+	public List<Veiculo> listarVeiculos() {
+		return this.servicoVeiculo.listar();
 	}
 
 	public void excluirVeiculo(Veiculo veiculo) {
-		ServicoVeiculo.excluirVeiculo(veiculo);
+		this.servicoVeiculo.excluirVeiculo(veiculo);
 		JSFUtils.enviarMensagemDeSucesso("Veículo excluído com sucesso!");
 	}
 

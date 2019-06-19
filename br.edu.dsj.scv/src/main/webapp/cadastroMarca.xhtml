@@ -5,51 +5,32 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-	<style type="text/css">
+<ui:composition template="/recursos/template/template.xhtml">
 
-/* .ui-panel .ui-panel-footer{ */
-/* 	text-align: center!important; */
-/* 	border: 2px dashed red; */
-/* 	border-radius: 15px; */
-/* } */
-</style>
-</h:head>
-<h:body>
+	<ui:define name="tituloPagina">Cadastro de Marcas</ui:define>
+	<ui:define name="tituloPrincipal">Cadastro de Marcas</ui:define>
+	<ui:define name="tituloSecundario">cadastre as marcas que serão utilizadas no cadastramento dos veículos</ui:define>
+	<ui:define name="botoesAcao">
+		<p:commandButton value="salvar" action="#{marcaBean.salvarMarca()}"
+			update="@form" />
+		<p:button value="Lista de marcas" outcome="marcasCadastradas"
+			target="_blank" />
+	</ui:define>
 
-	<h:form>
+	<ui:define name="conteudo">
 
-		<p:growl globalOnly="true" life="10000" />
+		<p:panelGrid columns="3">
+			<p:outputLabel for="n1" value="Nome:" />
+			<p:inputText id="n1" value="#{marcaBean.marca.nome}" />
+			<p:message for="n1" />
+			<p:outputLabel for="n2" value="Descrição:" />
+			<p:inputTextarea id="n2" rows="4"
+				value="#{marcaBean.marca.descricao}" />
+			<p:message for="n2" />
+		</p:panelGrid>
 
-		<p:panel header="Cadastro de marcas">
+	</ui:define>
 
-			<p:panelGrid columns="3">
+</ui:composition>
 
-				<p:outputLabel for="n1" value="Nome:" />
-				<p:inputText id="n1" value="#{marcaBean.marca.nome}" />
-				<p:message for="n1" />
-
-				<p:outputLabel for="n2" value="Descrição:" />
-				<p:inputTextarea id="n2" rows="4"
-					value="#{marcaBean.marca.descricao}" />
-				<p:message for="n2" />
-
-			</p:panelGrid>
-
-			<f:facet name="footer">
-
-				<p:commandButton value="salvar" action="#{marcaBean.salvarMarca()}"
-					update="@form" />
-
-				<p:button value="Lista de marcas" outcome="marcasCadastradas"
-					target="_blank" />
-
-			</f:facet>
-
-		</p:panel>
-
-
-	</h:form>
-
-</h:body>
 </html>

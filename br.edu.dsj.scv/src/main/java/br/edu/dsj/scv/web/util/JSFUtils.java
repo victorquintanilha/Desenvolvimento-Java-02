@@ -17,17 +17,23 @@ public class JSFUtils {
 	 * @param mensagem
 	 */
 	public static void enviarMensagemDeSucesso(String mensagem) {
-		
+
 		FacesMessage msg = new FacesMessage();
 		msg.setSummary(mensagem);
 		msg.setSeverity(FacesMessage.SEVERITY_INFO);
-		
+
 		FacesContext.getCurrentInstance().addMessage(null, msg);
-		
+
+	}
+
+	public static void enviarMensagemDeAtencao(String mensagem) {
+
+		FacesMessage msg = new FacesMessage();
+		msg.setSummary(mensagem);
+		msg.setSeverity(FacesMessage.SEVERITY_WARN);
+
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+
 	}
 
 }
-
-
-
-

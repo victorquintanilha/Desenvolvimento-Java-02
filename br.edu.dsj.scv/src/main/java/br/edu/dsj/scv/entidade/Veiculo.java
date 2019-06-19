@@ -2,6 +2,16 @@ package br.edu.dsj.scv.entidade;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 
 import br.edu.dsj.scv.enumerado.Combustivel;
@@ -12,10 +22,17 @@ import br.edu.dsj.scv.enumerado.Combustivel;
  * @author 4694
  *
  */
-
+@Entity
 public class Veiculo {
 
+	@Id
+	@SequenceGenerator(name = "NUM_SEQ_VEICULO", sequenceName = "NUM_SEQ_VEICULO", allocationSize = 0)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NUM_SEQ_VEICULO")
+	private Integer id;
+
 	@NotNull
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "FK_MARCA")
 	private Marca marca;
 
 	private String modelo;
@@ -31,6 +48,7 @@ public class Veiculo {
 	private Integer anoFabricacao;
 
 	@NotNull
+	@Enumerated(value = EnumType.STRING)
 	private Combustivel combustivel;
 
 	private Double precoFipe;
@@ -105,6 +123,14 @@ public class Veiculo {
 
 	public void setCombustivel(Combustivel combustivel) {
 		this.combustivel = combustivel;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }

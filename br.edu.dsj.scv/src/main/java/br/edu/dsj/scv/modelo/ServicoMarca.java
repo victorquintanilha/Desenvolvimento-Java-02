@@ -1,8 +1,14 @@
 package br.edu.dsj.scv.modelo;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.ws.rs.GET;
 
 import br.edu.dsj.scv.entidade.Marca;
+import br.edu.dsj.scv.entidade.Veiculo;
 
 /**
  * Classe para teste de persistencia.
@@ -10,31 +16,32 @@ import br.edu.dsj.scv.entidade.Marca;
  * @author 4694
  *
  */
+@Stateless
 public class ServicoMarca {
 
-	/**
-	 * Lista fake de banco de dados
-	 */
-	private static ArrayList<Marca> marcasCadastradas = new ArrayList<Marca>();
+	@PersistenceContext
+	private EntityManager em;
 
-	static {
-		marcasCadastradas.add(new Marca("Fiat","tttt"));
-		marcasCadastradas.add(new Marca("Volvo","tttt"));
-		marcasCadastradas.add(new Marca("Hiunday","tttt"));
-		marcasCadastradas.add(new Marca("Renault","tttt"));
-		marcasCadastradas.add(new Marca("Ford","tttt"));
-	}
-	
-	public static void cadastrarMarca(Marca marca) {
-		marcasCadastradas.add(marca);
+	public void cadastrarMarca(Marca marca) {
+		this.em.persist(marca);
 	}
 
-	public static ArrayList<Marca> listar() {
-		return marcasCadastradas;
+	public void excluirMarca(Marca marca) throws Exception {
+		if (listarVeiculoPorMarca(marca).isEmpty()) {
+			this.em.remove(this.em.merge(marca));
+		} else {
+			throw new Exception("Não foi possivel remover a marca porque existem veículos associados!");
+		}
 	}
 
-	public static void excluirMarca(Marca marca) {
-		marcasCadastradas.remove(marca);
+	@GET
+	public List<Veiculo> listarVeiculoPorMarca(Marca marca) {
+		return this.em.createQuery("From Veiculo v WHERE v.marca=:p1", Veiculo.class).setParameter("p1", marca)
+				.getResultList();
 	}
-	
+
+	public List<Marca> listar() {
+		return this.em.createQuery("FROM Marca m", Marca.class).getResultList();
+	}
+
 }
