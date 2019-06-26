@@ -1,0 +1,79 @@
+[1mdiff --git a/br.edu.dsj.scv/.classpath b/br.edu.dsj.scv/.classpath[m
+[1mindex 11def0e..2998aa3 100644[m
+[1m--- a/br.edu.dsj.scv/.classpath[m
+[1m+++ b/br.edu.dsj.scv/.classpath[m
+[36m@@ -6,11 +6,6 @@[m
+ 			<attribute name="maven.pomderived" value="true"/>[m
+ 		</attributes>[m
+ 	</classpathentry>[m
+[31m-	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">[m
+[31m-		<attributes>[m
+[31m-			<attribute name="maven.pomderived" value="true"/>[m
+[31m-		</attributes>[m
+[31m-	</classpathentry>[m
+ 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">[m
+ 		<attributes>[m
+ 			<attribute name="optional" value="true"/>[m
+[36m@@ -18,12 +13,6 @@[m
+ 			<attribute name="test" value="true"/>[m
+ 		</attributes>[m
+ 	</classpathentry>[m
+[31m-	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">[m
+[31m-		<attributes>[m
+[31m-			<attribute name="maven.pomderived" value="true"/>[m
+[31m-			<attribute name="test" value="true"/>[m
+[31m-		</attributes>[m
+[31m-	</classpathentry>[m
+ 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">[m
+ 		<attributes>[m
+ 			<attribute name="maven.pomderived" value="true"/>[m
+[1mdiff --git a/br.edu.dsj.scv/.settings/org.eclipse.jdt.core.prefs b/br.edu.dsj.scv/.settings/org.eclipse.jdt.core.prefs[m
+[1mindex 4e4a3ad..cac0df4 100644[m
+[1m--- a/br.edu.dsj.scv/.settings/org.eclipse.jdt.core.prefs[m
+[1m+++ b/br.edu.dsj.scv/.settings/org.eclipse.jdt.core.prefs[m
+[36m@@ -3,7 +3,9 @@[m [morg.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled[m
+ org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8[m
+ org.eclipse.jdt.core.compiler.compliance=1.8[m
+ org.eclipse.jdt.core.compiler.problem.assertIdentifier=error[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.problem.enablePreviewFeatures=disabled[m
+ org.eclipse.jdt.core.compiler.problem.enumIdentifier=error[m
+ org.eclipse.jdt.core.compiler.problem.forbiddenReference=warning[m
+[32m+[m[32morg.eclipse.jdt.core.compiler.problem.reportPreviewFeatures=ignore[m
+ org.eclipse.jdt.core.compiler.release=disabled[m
+ org.eclipse.jdt.core.compiler.source=1.8[m
+[1mdiff --git a/br.edu.dsj.scv/src/main/java/br/edu/dsj/scv/entidade/Cliente.java b/br.edu.dsj.scv/src/main/java/br/edu/dsj/scv/entidade/Cliente.java[m
+[1mindex ab42ee7..c9dbfd2 100644[m
+[1m--- a/br.edu.dsj.scv/src/main/java/br/edu/dsj/scv/entidade/Cliente.java[m
+[1m+++ b/br.edu.dsj.scv/src/main/java/br/edu/dsj/scv/entidade/Cliente.java[m
+[36m@@ -3,7 +3,6 @@[m [mpackage br.edu.dsj.scv.entidade;[m
+ import java.util.Date;[m
+ import java.util.List;[m
+ [m
+[31m-import javax.persistence.CascadeType;[m
+ import javax.persistence.Entity;[m
+ import javax.persistence.FetchType;[m
+ import javax.persistence.GeneratedValue;[m
+[1mdiff --git a/noivos/.classpath b/com.victor.noivos/.classpath[m
+[1msimilarity index 83%[m
+[1mrename from noivos/.classpath[m
+[1mrename to com.victor.noivos/.classpath[m
+[1mindex 8944b39..1dcf046 100644[m
+[1m--- a/noivos/.classpath[m
+[1m+++ b/com.victor.noivos/.classpath[m
+[36m@@ -18,9 +18,10 @@[m
+ 			<attribute name="test" value="true"/>[m
+ 		</attributes>[m
+ 	</classpathentry>[m
+[31m-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">[m
+[32m+[m	[32m<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">[m
+ 		<attributes>[m
+ 			<attribute name="maven.pomderived" value="true"/>[m
+[32m+[m			[32m<attribute name="test" value="true"/>[m
+ 		</attributes>[m
+ 	</classpathentry>[m
+ 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">[m
+[36m@@ -29,5 +30,10 @@[m
+ 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>[m
+ 		</attributes>[m
+ 	</classpathentry>[m
+[32m+[m	[32m<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher
