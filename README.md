@@ -1,2 +1,2 @@
-# Desenvolvimento-Java-02
-Códigos desenvolvidos durante as aulas de Desenvolvimento de Sistemas Java. 
+# DesenvolvimentoJava02
+Códigos desenvolvidos durante as aulas de Desenvolvimento de Sistemas Java
