@@ -26,7 +26,7 @@ public class PacienteBean {
 			this.servicoPaciente.cadastrar(this.paciente);
 			this.paciente = new Paciente();
 			JSFUtils.enviarMensagemDeSucesso("Paciente cadastrado com sucesso!");
-		} catch (Exception e) {
+		} catch(Exception e) {
 			JSFUtils.enviarMensagemDeSucesso(e.getMessage());
 		}
 	}
